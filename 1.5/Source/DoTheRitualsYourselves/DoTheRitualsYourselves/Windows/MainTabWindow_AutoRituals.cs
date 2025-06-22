@@ -7,7 +7,7 @@ using DoTheRitualsYourselves.WorldComponents;
 using DoTheRitualsYourselves.Tool;
 using RimWorld.Planet;
 
-namespace DoTheRitualsYourselves.Defs
+namespace DoTheRitualsYourselves.Windows
 {
     public class MainTabWindow_AutoRituals : MainTabWindow
     {
@@ -21,7 +21,7 @@ namespace DoTheRitualsYourselves.Defs
             {
                 int ritualCount = (selectedIdeo ?? DefaultIdeo).GetRituals().Count();
                 float height = 80f + ritualCount * 34f + 40f;
-                return new Vector2(750f, height);
+                return new Vector2(800f, height);
             }
         }
 
@@ -58,6 +58,7 @@ namespace DoTheRitualsYourselves.Defs
             Text.Anchor = TextAnchor.MiddleCenter;
             Widgets.Label(new Rect(inRect.x + nameWidth + 10f, curY, 100f, lineHeight), "DoTheRitualsYourselves.UI.StartNow".Translate());
             Widgets.Label(new Rect(inRect.x + nameWidth + 120f, curY, 100f, lineHeight), "DoTheRitualsYourselves.UI.AutoStart".Translate());
+            Widgets.Label(new Rect(inRect.x + nameWidth + 240f, curY, 150f, lineHeight), "DoTheRitualsYourselves.UI.RitualPolicy".Translate()); // 정책 열 추가
             Text.Anchor = prevAnchor;
 
             curY += lineHeight + spacing * 2f;
@@ -67,6 +68,7 @@ namespace DoTheRitualsYourselves.Defs
             {
                 Widgets.Label(new Rect(inRect.x + 20f, curY, nameWidth, lineHeight), new GUIContent($"{ritual.LabelCap} ({ritual.def.label})", ritual.Icon));
 
+                // start now
                 string reason = "";
                 Rect rect = new Rect(inRect.x + nameWidth + 10f, curY, 100f, lineHeight);
                 if (!ritual.CanStartNow(ref reason))
@@ -81,9 +83,32 @@ namespace DoTheRitualsYourselves.Defs
                     TooltipHandler.TipRegion(rect, "DoTheRitualsYourselves.UI.StartTooltip".Translate());
                 }
 
+                // auto start
                 bool auto = WorldComponent_AutoRituals.Instance.IsAutoStart(ritual.Id);
-                Widgets.Checkbox(new Vector2(inRect.x + nameWidth + 130f, curY + 5f), ref auto);
-                WorldComponent_AutoRituals.Instance.Update(ritual.Id, auto);
+                Widgets.Checkbox(new Vector2(inRect.x + nameWidth + 160f, curY + 5f), ref auto);
+                WorldComponent_AutoRituals.Instance.SetAutoStart(ritual.Id, auto);
+
+                // policy
+                Rect policyRect = new Rect(inRect.x + nameWidth + 240f, curY, 150f, lineHeight);
+                var currentPolicy = WorldComponent_AutoRituals.Instance.GetRitualPolicy(ritual.Id);
+                if (Widgets.ButtonText(policyRect, currentPolicy.label))
+                {
+                    List<FloatMenuOption> options = new List<FloatMenuOption>();
+                    foreach (var policyId in WorldComponent_RitualPolicy.Instance.AllPolicyIds)
+                    {
+                        var policy = WorldComponent_RitualPolicy.Instance.GetPolicy(policyId);
+                        options.Add(new FloatMenuOption(policy.label, () =>
+                        {
+                            WorldComponent_AutoRituals.Instance.SetPolicy(ritual.Id, policyId);
+                        }));
+                    }
+                    options.Add(new FloatMenuOption("DoTheRitualsYourselves.UI.Edit".Translate(), () =>
+                    {
+                        Find.WindowStack.Add(new Dialog_EditRitualPolicy());
+                    }));
+
+                    Find.WindowStack.Add(new FloatMenu(options));
+                }
 
                 curY += lineHeight + spacing;
             }

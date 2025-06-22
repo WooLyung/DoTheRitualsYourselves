@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using DoTheRitualsYourselves.RitualPolicy;
+using DoTheRitualsYourselves.WorldComponents;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,27 @@ namespace DoTheRitualsYourselves.Tool
             foreach (var def in DefDatabase<ThingDef>.AllDefs)
                 if (def?.building?.buildingTags?.Contains("RitualFocus") ?? false)
                     ritualBuildingDefs.Add(def);
+        }
+
+        public static void TryStart()
+        {
+            foreach (Ideo ideo in Faction.OfPlayer.ideos.AllIdeos)
+            {
+                foreach (Precept_Ritual ritual in ideo.GetRituals())
+                {
+                    if (!WorldComponent_AutoRituals.Instance.IsAutoStart(ritual.Id))
+                        continue;
+
+                    RitualPolicyBase policy = WorldComponent_AutoRituals.Instance.GetRitualPolicy(ritual.Id);
+                    foreach (Map map in Find.Maps)
+                    {
+                        // 정책 필요함
+                        string reason = "";
+                        if (CanStartNow(ritual, ref reason, true, map))
+                            break;
+                    }
+                }
+            }
         }
 
         public static float PredictedQuality(Precept_Ritual ritual, TargetInfo targetInfo, RitualObligation ritualObligation, RitualRoleAssignments ritualRoleAssignments)
@@ -95,13 +118,13 @@ namespace DoTheRitualsYourselves.Tool
                 reason = "DateRitualNoObligation".Translate(ritual.LabelCap, (num - num2).ToStringTicksToPeriod(), ritualObligationTrigger_Date.DateString).Resolve();
             }
 
-            reason = "DoTheRitualsYourselves.Message.RitualNoObligation".Translate();
+            if (reason == "")
+                reason = "DoTheRitualsYourselves.Message.RitualNoObligation".Translate();
             return false;
         }
 
         public static bool CanStartWithPawns(Precept_Ritual ritual, Thing thing, RitualObligation ritualObligation, ref string reason, bool start, ref StartRitualCallback callback, ref float quality)
         {
-
             TargetInfo targetInfo = new TargetInfo(thing);
             Dialog_BeginRitual.PawnFilter filter = delegate (Pawn pawn, bool voluntary, bool allowOtherIdeos)
             {

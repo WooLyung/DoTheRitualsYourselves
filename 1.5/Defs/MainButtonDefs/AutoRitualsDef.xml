@@ -5,7 +5,7 @@
         <label>Rituals</label>
         <description>Automatically schedule and begin rituals.</description>
         <buttonVisible>true</buttonVisible>
-        <tabWindowClass>DoTheRitualsYourselves.Defs.MainTabWindow_AutoRituals</tabWindowClass>
+        <tabWindowClass>DoTheRitualsYourselves.Windows.MainTabWindow_AutoRituals</tabWindowClass>
         <order>20</order>
     </MainButtonDef>
 </Defs>
