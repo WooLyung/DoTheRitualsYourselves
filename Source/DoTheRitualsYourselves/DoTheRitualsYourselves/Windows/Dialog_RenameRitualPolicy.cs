@@ -1,5 +1,4 @@
-﻿using DoTheRitualsYourselves.RitualPolicy;
-using DoTheRitualsYourselves.WorldComponents;
+﻿using DoTheRitualsYourselves.RitualPolicies;
 using RimWorld;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -7,11 +6,11 @@ using Verse;
 
 namespace DoTheRitualsYourselves.Windows
 {
-    public class Dialog_RenameRitualPolicy : Dialog_Rename<RitualPolicyBase>
+    public class Dialog_RenameRitualPolicy : Dialog_Rename<RitualPolicy>
     {
         private static readonly Regex ValidNameRegex = new Regex("^[\\p{L}0-9 '\\-]*$");
 
-        public Dialog_RenameRitualPolicy(RitualPolicyBase policy)
+        public Dialog_RenameRitualPolicy(RitualPolicy policy)
             : base(policy)
         {
         }

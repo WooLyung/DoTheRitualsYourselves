@@ -1,4 +1,4 @@
-﻿using DoTheRitualsYourselves.RitualPolicy;
+﻿using DoTheRitualsYourselves.RitualPolicies;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +8,15 @@ namespace DoTheRitualsYourselves.WorldComponents
 {
     public class WorldComponent_RitualPolicy : WorldComponent
     {
-        private Dictionary<int, RitualPolicyBase> policies = new Dictionary<int, RitualPolicyBase>()
+        private Dictionary<int, RitualPolicy> policies = new Dictionary<int, RitualPolicy>()
         {
             { 0, new RitualPolicy_Always() },
-            { 1, new RitualPolicyBase("ASDF") }
+            { 1, new RitualPolicy_DaytimeRitual() },
+            { 2, new RitualPolicy_NightRitual() }
         };
-        private int nextId = 2;
+        private int nextId = 3;
 
-        private static WorldComponent_RitualPolicy _instance = null;
-        public static WorldComponent_RitualPolicy Instance {
-            get
-            {
-                if (_instance == null)
-                    _instance = Find.World.GetComponent<WorldComponent_RitualPolicy>();
-                return _instance;
-            }
-        }
+        public static WorldComponent_RitualPolicy Instance => Find.World.GetComponent<WorldComponent_RitualPolicy>();
 
         public WorldComponent_RitualPolicy(World world) : base(world)
         {
@@ -35,12 +28,12 @@ namespace DoTheRitualsYourselves.WorldComponents
             Scribe_Values.Look(ref nextId, "DoTheRitualsYourselves.NextID");
         }
 
-        public void InsertPolicy(RitualPolicyBase policy)
+        public void InsertPolicy(RitualPolicy policy)
         {
             policies.Add(nextId++, policy);
         }
 
-        public void RemovePolicy(RitualPolicyBase policy)
+        public void RemovePolicy(RitualPolicy policy)
         {
             int key = -1;
             foreach (var k in policies.Keys)
@@ -67,7 +60,7 @@ namespace DoTheRitualsYourselves.WorldComponents
             }
         }
 
-        public RitualPolicyBase GetPolicy(int key)
+        public RitualPolicy GetPolicy(int key)
         {
             if (!policies.ContainsKey(key))
                 return null;

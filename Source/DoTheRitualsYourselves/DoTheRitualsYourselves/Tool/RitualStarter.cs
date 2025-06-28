@@ -1,4 +1,5 @@
-﻿using DoTheRitualsYourselves.RitualPolicy;
+﻿using DoTheRitualsYourselves.Extra;
+using DoTheRitualsYourselves.RitualPolicies;
 using DoTheRitualsYourselves.WorldComponents;
 using RimWorld;
 using System;
@@ -24,25 +25,19 @@ namespace DoTheRitualsYourselves.Tool
                     ritualBuildingDefs.Add(def);
         }
 
-        public static void TryStart()
+        public static bool TryStart(Precept_Ritual ritual, RitualExtra ex)
         {
-            foreach (Ideo ideo in Faction.OfPlayer.ideos.AllIdeos)
-            {
-                foreach (Precept_Ritual ritual in ideo.GetRituals())
-                {
-                    if (!WorldComponent_AutoRituals.Instance.IsAutoStart(ritual.Id))
-                        continue;
+            if (!WorldComponent_AutoRituals.Instance.IsAutoStart(ritual.Id))
+                return false;
 
-                    RitualPolicyBase policy = WorldComponent_AutoRituals.Instance.GetRitualPolicy(ritual.Id);
-                    foreach (Map map in Find.Maps)
-                    {
-                        // 정책 필요함
-                        string reason = "";
-                        if (CanStartNow(ritual, ref reason, true, map))
-                            break;
-                    }
-                }
+            foreach (Map map in Find.Maps)
+            {
+                string reason = "";
+                if (CanStartNow(ritual, ref reason, true, false, map))
+                    return true;
             }
+
+            return false;
         }
 
         public static float PredictedQuality(Precept_Ritual ritual, TargetInfo targetInfo, RitualObligation ritualObligation, RitualRoleAssignments ritualRoleAssignments)
@@ -119,22 +114,18 @@ namespace DoTheRitualsYourselves.Tool
             }
 
             if (reason == "")
-                reason = "DoTheRitualsYourselves.Message.RitualNoObligation".Translate();
+                reason = "DoTheRitualsYourselves.Reason.RitualNoObligation".Translate();
             return false;
         }
 
         public static bool CanStartWithPawns(Precept_Ritual ritual, Thing thing, RitualObligation ritualObligation, ref string reason, bool start, ref StartRitualCallback callback, ref float quality)
         {
             TargetInfo targetInfo = new TargetInfo(thing);
+            RitualPolicy policy = WorldComponent_AutoRituals.Instance.GetRitualPolicy(ritual.Id);
+
             Dialog_BeginRitual.PawnFilter filter = delegate (Pawn pawn, bool voluntary, bool allowOtherIdeos)
             {
-                if (pawn.GetLord() != null)
-                    return false;
-                if (pawn.RaceProps.Animal && !ritual.behavior.def.roles.Any((RitualRole r) => r.AppliesToPawn(pawn, out var _, targetInfo, null, null, null, skipReason: true)))
-                    return false;
-                if (pawn.IsMutant)
-                    return false;
-                return !ritual.ritualOnlyForIdeoMembers || ritual.def.allowSpectatorsFromOtherIdeos || pawn.Ideo == ritual.ideo || !voluntary || allowOtherIdeos || pawn.IsPrisonerOfColony || pawn.RaceProps.Animal;
+                return policy.IsCanJoin(ritual, pawn, voluntary, allowOtherIdeos);
             };
 
             RitualRoleAssignments ritualRoleAssignments = Dialog_BeginRitual.CreateRitualRoleAssignments(ritual, targetInfo, thing.Map, filter, null, null, null);
@@ -249,7 +240,7 @@ namespace DoTheRitualsYourselves.Tool
                         yield return thing;
         }
 
-        public static bool CanStartNow(this Precept_Ritual ritual, ref string reason, bool start = false, Map map = null)
+        public static bool CanStartNow(this Precept_Ritual ritual, ref string reason, bool forced, bool start = false, Map map = null)
         {
             if (map == null)
                 map = Find.CurrentMap;
@@ -265,6 +256,16 @@ namespace DoTheRitualsYourselves.Tool
                     }
                 }
             }
+
+            if (!forced && map.dangerWatcher.DangerRating == StoryDanger.High)
+            {
+                reason = "DoTheRitualsYourselves.Reason.Danger";
+                return false;
+            }
+
+            RitualPolicy policy = WorldComponent_AutoRituals.Instance.GetRitualPolicy(ritual.Id);
+            if (!forced && !policy.IsAccept(ritual, map, ref reason))
+                return false;
 
             string reason2 = "", reason3 = "";
             StartRitualCallback callback = null;
@@ -297,7 +298,7 @@ namespace DoTheRitualsYourselves.Tool
                 return true;
             }
 
-            reason = "DoTheRitualsYourselves.Message.RitualNoSpot".Translate();
+            reason = "DoTheRitualsYourselves.Reason.RitualNoSpot".Translate();
             if (reason3 != "")
                 reason = reason3;
             else if (reason2 != "")
@@ -309,7 +310,7 @@ namespace DoTheRitualsYourselves.Tool
         public static void StartNow(this Precept_Ritual ritual)
         {
             string reason = "";
-            CanStartNow(ritual, ref reason, true);
+            CanStartNow(ritual, ref reason, true, true);
         }
     }
 }

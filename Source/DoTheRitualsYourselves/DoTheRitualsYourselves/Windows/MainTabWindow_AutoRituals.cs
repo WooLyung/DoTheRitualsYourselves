@@ -3,9 +3,9 @@ using UnityEngine;
 using Verse;
 using System.Collections.Generic;
 using System.Linq;
-using DoTheRitualsYourselves.WorldComponents;
 using DoTheRitualsYourselves.Tool;
 using RimWorld.Planet;
+using DoTheRitualsYourselves.WorldComponents;
 
 namespace DoTheRitualsYourselves.Windows
 {
@@ -71,10 +71,10 @@ namespace DoTheRitualsYourselves.Windows
                 // start now
                 string reason = "";
                 Rect rect = new Rect(inRect.x + nameWidth + 10f, curY, 100f, lineHeight);
-                if (!ritual.CanStartNow(ref reason))
+                if (!ritual.CanStartNow(ref reason, true))
                 {
                     Widgets.ButtonText(rect, "DoTheRitualsYourselves.UI.CannotStart".Translate(), active: false);
-                    TooltipHandler.TipRegion(rect, reason != "" ? reason : "DoTheRitualsYourselves.Message.CantUnknown".Translate().RawText);
+                    TooltipHandler.TipRegion(rect, reason != "" ? reason : "DoTheRitualsYourselves.Reason.CantUnknown".Translate().RawText);
                 }
                 else
                 {
