@@ -80,6 +80,8 @@ namespace DoTheRitualsYourselves.RitualPolicies
                 return false;
             if (pawn.Drafted)
                 return false;
+            if (pawn.IsSubhuman)
+                return false;
             if (!pawnHealth.Includes(pawn?.health?.summaryHealth?.SummaryHealthPercent ?? 0))
                 return false;
             if (!pawnMood.Includes(pawn?.needs?.mood?.CurInstantLevel ?? 0))

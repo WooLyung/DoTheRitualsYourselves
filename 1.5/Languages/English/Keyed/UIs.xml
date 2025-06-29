@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <DoTheRitualsYourselves.UI.StartNow>Start Now</DoTheRitualsYourselves.UI.StartNow>
+    <DoTheRitualsYourselves.UI.StartNow.Tip>Starts the ritual immediately. Ignores ritual policy except for participant requirements.</DoTheRitualsYourselves.UI.StartNow.Tip>
     <DoTheRitualsYourselves.UI.AutoStart>Auto Start</DoTheRitualsYourselves.UI.AutoStart>
+    <DoTheRitualsYourselves.UI.AutoStart.Tip>Colonists will start the ritual according to its policy.</DoTheRitualsYourselves.UI.AutoStart.Tip>
     <DoTheRitualsYourselves.UI.RitualPolicy>Ritual Policy</DoTheRitualsYourselves.UI.RitualPolicy>
+    <DoTheRitualsYourselves.UI.RitualPolicy.Tip>Configure participants and start conditions for the ritual.</DoTheRitualsYourselves.UI.RitualPolicy.Tip>
+    <DoTheRitualsYourselves.UI.RitualSpot>Ritual Spot</DoTheRitualsYourselves.UI.RitualSpot>
+    <DoTheRitualsYourselves.UI.RitualSpot.Tip>Assign a preferred location for the ritual. If none is set, the highest expected quality location will be used.</DoTheRitualsYourselves.UI.RitualSpot.Tip>
     <DoTheRitualsYourselves.UI.Start>Start</DoTheRitualsYourselves.UI.Start>
     <DoTheRitualsYourselves.UI.CannotStart>Cannot Start</DoTheRitualsYourselves.UI.CannotStart>
     <DoTheRitualsYourselves.UI.StartTooltip>Start the ritual immediately with proper preparation.</DoTheRitualsYourselves.UI.StartTooltip>
     <DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>The ritual was performed recently, so the quality may be low.</DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>
     <DoTheRitualsYourselves.UI.Edit>Edit...</DoTheRitualsYourselves.UI.Edit>
+    
+    <DoTheRitualsYourselves.UI.RitualSpot.None>None</DoTheRitualsYourselves.UI.RitualSpot.None>
+    <DoTheRitualsYourselves.UI.RitualSpot.Assign>Assign</DoTheRitualsYourselves.UI.RitualSpot.Assign>
+    <DoTheRitualsYourselves.UI.RitualSpot.Clear>Clear</DoTheRitualsYourselves.UI.RitualSpot.Clear>
+    <DoTheRitualsYourselves.UI.RitualSpot.JumpTo>Jump To</DoTheRitualsYourselves.UI.RitualSpot.JumpTo>
+    <DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>Ritual spot has been assigned.</DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>
 
     <DoTheRitualsYourselves.UI.Policy.Title>Ritual Policy</DoTheRitualsYourselves.UI.Policy.Title>
     <DoTheRitualsYourselves.UI.Policy.Participants>Participants</DoTheRitualsYourselves.UI.Policy.Participants>

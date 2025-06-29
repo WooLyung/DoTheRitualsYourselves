@@ -8,12 +8,14 @@ namespace DoTheRitualsYourselves.Extra
         public bool autoStart;
         public int policyID;
         public int nextCheckTick;
+        public Thing ritualSpot = null;
 
         public void ExposeData()
         {
             Scribe_Values.Look(ref autoStart, "DoTheRitualsYourselves.AutoStart", false);
             Scribe_Values.Look(ref policyID, "DoTheRitualsYourselves.PolicyID", 1);
             Scribe_Values.Look(ref nextCheckTick, "DoTheRitualsYourselves.NextCheckTick", Random.Range(2500, 7500));
+            Scribe_References.Look(ref ritualSpot, "DoTheRitualsYourselves.RitualSpot");
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 
 namespace DoTheRitualsYourselves.Core
 {
@@ -215,7 +216,7 @@ namespace DoTheRitualsYourselves.Core
 
             if (!forced && map.dangerWatcher.DangerRating == StoryDanger.High)
             {
-                reason = "DoTheRitualsYourselves.Reason.Danger";
+                reason = "DoTheRitualsYourselves.Reason.Danger".Translate();
                 return false;
             }
 
@@ -232,6 +233,34 @@ namespace DoTheRitualsYourselves.Core
             string reason2 = "", reason3 = "";
             StartRitualCallback callback = null;
             float quality = 0;
+
+            RitualExtraData extra = WorldComponent_AutoRituals.Instance.GetRitualExtraData(ritual.Id);
+            Thing ritualSpot = extra.ritualSpot;
+            if (ritualSpot != null)
+            {
+                if (!ritualSpot.Spawned)
+                {
+                    extra.ritualSpot = null;
+                }
+                else if (ritualSpot.Map == map)
+                {
+                    RitualObligation ritualObligation = null;
+                    if (CanStartWithObligations(ritual, ritualSpot, ref ritualObligation, ref reason2))
+                    {
+                        if (simulated)
+                            return true;
+
+                        if (CanStartWithPawns(ritual, ritualSpot, ritualObligation, ref reason3, ref callback, ref quality))
+                        {
+                            if (callback != null)
+                            {
+                                callback();
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
 
             foreach (Thing thing in map.GetRitualBuildings())
             {
@@ -272,9 +301,18 @@ namespace DoTheRitualsYourselves.Core
 
         public static bool TryStart(this Precept_Ritual ritual)
         {
-            if (!WorldComponent_AutoRituals.Instance.IsAutoStart(ritual.Id))
+            RitualExtraData extra = WorldComponent_AutoRituals.Instance.GetRitualExtraData(ritual.Id);
+            if (!extra.autoStart)
                 return false;
 
+            Thing ritualSpot = extra.ritualSpot;
+            if (ritualSpot != null && ritualSpot.Spawned)
+            {
+                string reason = "";
+                if (ritual.TryStart(ref reason, false, false, ritualSpot.Map))
+                    return true;
+            }
+            
             foreach (Map map in Find.Maps)
             {
                 string reason = "";

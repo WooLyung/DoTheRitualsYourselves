@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <DoTheRitualsYourselves.UI.StartNow>즉시 시작</DoTheRitualsYourselves.UI.StartNow>
+    <DoTheRitualsYourselves.UI.StartNow.Tip>행사를 즉시 시작합니다. 참가자 조건을 제외한 행사 정책을 무시합니다.</DoTheRitualsYourselves.UI.StartNow.Tip>
     <DoTheRitualsYourselves.UI.AutoStart>자동 시작</DoTheRitualsYourselves.UI.AutoStart>
+    <DoTheRitualsYourselves.UI.AutoStart.Tip>행사 정책에 맞춰 정착민들이 행사를 시작합니다.</DoTheRitualsYourselves.UI.AutoStart.Tip>
     <DoTheRitualsYourselves.UI.RitualPolicy>행사 정책</DoTheRitualsYourselves.UI.RitualPolicy>
+    <DoTheRitualsYourselves.UI.RitualPolicy.Tip>행사의 참여자와 행사 시작 조건을 설정합니다.</DoTheRitualsYourselves.UI.RitualPolicy.Tip>
+    <DoTheRitualsYourselves.UI.RitualSpot>행사 장소</DoTheRitualsYourselves.UI.RitualSpot>
+    <DoTheRitualsYourselves.UI.RitualSpot.Tip>행사에 우선적으로 사용할 장소를 지정합니다. 없다면 가장 예상 품질이 높은 장소에서 진행합니다.</DoTheRitualsYourselves.UI.RitualSpot.Tip>
     <DoTheRitualsYourselves.UI.Start>시작</DoTheRitualsYourselves.UI.Start>
     <DoTheRitualsYourselves.UI.CannotStart>시작 불가</DoTheRitualsYourselves.UI.CannotStart>
     <DoTheRitualsYourselves.UI.StartTooltip>적절한 준비로 행사를 즉시 시작합니다.</DoTheRitualsYourselves.UI.StartTooltip>
     <DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>이미 얼마 전에 행사를 진행하여 품질이 낮을 수 있습니다.</DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>
     <DoTheRitualsYourselves.UI.Edit>수정...</DoTheRitualsYourselves.UI.Edit>
+
+    <DoTheRitualsYourselves.UI.RitualSpot.None>없음</DoTheRitualsYourselves.UI.RitualSpot.None>
+    <DoTheRitualsYourselves.UI.RitualSpot.Reassign>재지정</DoTheRitualsYourselves.UI.RitualSpot.Reassign>
+    <DoTheRitualsYourselves.UI.RitualSpot.Assign>지정</DoTheRitualsYourselves.UI.RitualSpot.Assign>
+    <DoTheRitualsYourselves.UI.RitualSpot.Clear>초기화</DoTheRitualsYourselves.UI.RitualSpot.Clear>
+    <DoTheRitualsYourselves.UI.RitualSpot.JumpTo>바로가기</DoTheRitualsYourselves.UI.RitualSpot.JumpTo>
+    <DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>행사 장소를 지정했습니다.</DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>
     
     <DoTheRitualsYourselves.UI.Policy.Title>행사 정책</DoTheRitualsYourselves.UI.Policy.Title>
     <DoTheRitualsYourselves.UI.Policy.Participants>참여자</DoTheRitualsYourselves.UI.Policy.Participants>

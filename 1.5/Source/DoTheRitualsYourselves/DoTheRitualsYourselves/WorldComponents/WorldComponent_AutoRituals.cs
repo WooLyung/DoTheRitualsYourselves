@@ -12,6 +12,7 @@ namespace DoTheRitualsYourselves.WorldComponents
     public class WorldComponent_AutoRituals : WorldComponent
     {
         private Dictionary<int, RitualExtraData> extraDatas = new Dictionary<int, RitualExtraData>();
+        private int nextRitualTick = 0;
 
         public static WorldComponent_AutoRituals Instance => Find.World.GetComponent<WorldComponent_AutoRituals>();
 
@@ -20,21 +21,14 @@ namespace DoTheRitualsYourselves.WorldComponents
         public override void ExposeData()
         {
             Scribe_Collections.Look(ref extraDatas, "DoTheRitualsYourselves.ExtraDatas", LookMode.Value, LookMode.Deep);
+            Scribe_Values.Look(ref nextRitualTick, "DoTheRitualsYourselves.NextRitualTick", 0);
         }
 
-        public void SetAutoStart(int ritualID, bool value)
+        public RitualExtraData GetRitualExtraData(int ritualID)
         {
-            extraDatas[ritualID].autoStart = value;
-        }
-
-        public void SetPolicy(int ritualID, int value)
-        {
-            extraDatas[ritualID].policyID = value;
-        }
-
-        public bool IsAutoStart(int ritualID)
-        {
-            return extraDatas[ritualID]?.autoStart ?? false;
+            if (!extraDatas.ContainsKey(ritualID))
+                extraDatas.Add(ritualID, new RitualExtraData());
+            return extraDatas[ritualID];
         }
 
         public RitualPolicy GetRitualPolicy(int ritualID)
@@ -56,9 +50,16 @@ namespace DoTheRitualsYourselves.WorldComponents
         {
             base.WorldComponentTick();
 
-            foreach (Ideo ideo in Faction.OfPlayer.ideos.AllIdeos)
+            if (nextRitualTick <= 0)
             {
-                foreach (Precept_Ritual ritual in ideo.GetRituals())
+                var rituals = new List<Precept_Ritual>();
+
+                foreach (Ideo ideo in Faction.OfPlayer.ideos.AllIdeos)
+                    foreach (Precept_Ritual ritual in ideo.GetRituals())
+                        rituals.Add(ritual);
+                rituals.Shuffle();
+
+                foreach (Precept_Ritual ritual in rituals)
                 {
                     int id = ritual.Id;
                     if (!extraDatas.ContainsKey(id))
@@ -69,11 +70,20 @@ namespace DoTheRitualsYourselves.WorldComponents
                     if (ex.nextCheckTick <= 0)
                     {
                         if (ritual.TryStart())
-                            ex.nextCheckTick = Random.Range(60000, 180000);
+                        {
+                            ex.nextCheckTick = Random.Range(60000, 90000);
+                            nextRitualTick = Random.Range(30000, 60000);
+                        }
                         else
                             ex.nextCheckTick = Random.Range(2500, 7500);
                     }
                 }
+            }
+            else
+            {
+                nextRitualTick--;
+                if (nextRitualTick < 0)
+                    nextRitualTick = 0;
             }
         }
     }
