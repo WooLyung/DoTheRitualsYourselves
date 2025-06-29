@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <DoTheRitualsYourselves.UI.StartNow>즉시 시작</DoTheRitualsYourselves.UI.StartNow>
+    <DoTheRitualsYourselves.UI.AutoStart>자동 시작</DoTheRitualsYourselves.UI.AutoStart>
+    <DoTheRitualsYourselves.UI.RitualPolicy>행사 정책</DoTheRitualsYourselves.UI.RitualPolicy>
+    <DoTheRitualsYourselves.UI.Start>시작</DoTheRitualsYourselves.UI.Start>
+    <DoTheRitualsYourselves.UI.CannotStart>시작 불가</DoTheRitualsYourselves.UI.CannotStart>
+    <DoTheRitualsYourselves.UI.StartTooltip>적절한 준비로 행사를 즉시 시작합니다.</DoTheRitualsYourselves.UI.StartTooltip>
+    <DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>이미 얼마 전에 행사를 진행하여 품질이 낮을 수 있습니다.</DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>
+    <DoTheRitualsYourselves.UI.Edit>수정...</DoTheRitualsYourselves.UI.Edit>
+    
+    <DoTheRitualsYourselves.UI.Policy.Title>행사 정책</DoTheRitualsYourselves.UI.Policy.Title>
+    <DoTheRitualsYourselves.UI.Policy.Participants>참여자</DoTheRitualsYourselves.UI.Policy.Participants>
+    <DoTheRitualsYourselves.UI.Policy.Desc>행사가 자동으로 시작될 규칙과 행사에 참여할 수 있는 인원의 조건을 생성하고 관리합니다.</DoTheRitualsYourselves.UI.Policy.Desc>
+    <DoTheRitualsYourselves.UI.Policy.MinPawnCount>최소 참여 인원</DoTheRitualsYourselves.UI.Policy.MinPawnCount>
+    <DoTheRitualsYourselves.UI.Policy.MinPawnCount.Tip>행사가 시작하기 위한 최소 참여 인원을 설정합니다.</DoTheRitualsYourselves.UI.Policy.MinPawnCount.Tip>
+    <DoTheRitualsYourselves.UI.Policy.AvgMood>평균 기분</DoTheRitualsYourselves.UI.Policy.AvgMood>
+    <DoTheRitualsYourselves.UI.Policy.AvgMood.Tip>행사가 시작하기 위한 참여 인원의 평균 기분을 설정합니다.</DoTheRitualsYourselves.UI.Policy.AvgMood.Tip>
+    <DoTheRitualsYourselves.UI.Policy.Time>시간</DoTheRitualsYourselves.UI.Policy.Time>
+    <DoTheRitualsYourselves.UI.Policy.Time.Tip>행사가 시작될 시간 구간을 설정합니다.</DoTheRitualsYourselves.UI.Policy.Time.Tip>
+    <DoTheRitualsYourselves.UI.Policy.InvertTime>시간 반전</DoTheRitualsYourselves.UI.Policy.InvertTime>
+    <DoTheRitualsYourselves.UI.Policy.InvertTime.Tip>활성화하면 시간 구간으로 지정된 시간동안 행사를 진행하지 않습니다.</DoTheRitualsYourselves.UI.Policy.InvertTime.Tip>
+    <DoTheRitualsYourselves.UI.Policy.PawnHealth>참여자 건강</DoTheRitualsYourselves.UI.Policy.PawnHealth>
+    <DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip>행사에 참여할 수 있는 참여자의 건강 상태를 설정합니다.</DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip>
+    <DoTheRitualsYourselves.UI.Policy.PawnMood>참여자 기분</DoTheRitualsYourselves.UI.Policy.PawnMood>
+    <DoTheRitualsYourselves.UI.Policy.PawnMood.Tip>행사에 참여할 수 있는 참여자의 기분을 설정합니다.</DoTheRitualsYourselves.UI.Policy.PawnMood.Tip>
+    <DoTheRitualsYourselves.UI.Policy.ExceptRestring>휴식 제외</DoTheRitualsYourselves.UI.Policy.ExceptRestring>
+    <DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip>활성화하면 휴식하는 사람을 행사에서 제외시킵니다.</DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip>
+
+    <DoTheRitualsYourselves.NewPolicy>새 행사 정책</DoTheRitualsYourselves.NewPolicy>
+
+    <DoTheRitualsYourselves.UI.NotEditable>수정 불가</DoTheRitualsYourselves.UI.NotEditable>
+    <DoTheRitualsYourselves.UI.Rename>이름 변경</DoTheRitualsYourselves.UI.Rename>
+    <DoTheRitualsYourselves.UI.Delete>삭제</DoTheRitualsYourselves.UI.Delete>
+    <DoTheRitualsYourselves.UI.Add>추가</DoTheRitualsYourselves.UI.Add>
+    <DoTheRitualsYourselves.UI.DeleteConfirm>행사 정책을 삭제하시겠습니까?</DoTheRitualsYourselves.UI.DeleteConfirm>
+</LanguageData>

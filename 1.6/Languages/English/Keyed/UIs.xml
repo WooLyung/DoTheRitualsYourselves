@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <DoTheRitualsYourselves.UI.StartNow>Start Now</DoTheRitualsYourselves.UI.StartNow>
+    <DoTheRitualsYourselves.UI.AutoStart>Auto Start</DoTheRitualsYourselves.UI.AutoStart>
+    <DoTheRitualsYourselves.UI.RitualPolicy>Ritual Policy</DoTheRitualsYourselves.UI.RitualPolicy>
+    <DoTheRitualsYourselves.UI.Start>Start</DoTheRitualsYourselves.UI.Start>
+    <DoTheRitualsYourselves.UI.CannotStart>Cannot Start</DoTheRitualsYourselves.UI.CannotStart>
+    <DoTheRitualsYourselves.UI.StartTooltip>Start the ritual immediately with proper preparation.</DoTheRitualsYourselves.UI.StartTooltip>
+    <DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>The ritual was performed recently, so the quality may be low.</DoTheRitualsYourselves.UI.RepeatPenaltyStartTooltip>
+    <DoTheRitualsYourselves.UI.Edit>Edit...</DoTheRitualsYourselves.UI.Edit>
+
+    <DoTheRitualsYourselves.UI.Policy.Title>Ritual Policy</DoTheRitualsYourselves.UI.Policy.Title>
+    <DoTheRitualsYourselves.UI.Policy.Participants>Participants</DoTheRitualsYourselves.UI.Policy.Participants>
+    <DoTheRitualsYourselves.UI.Policy.Desc>Create and manage rules for automatic ritual initiation and conditions for participant eligibility.</DoTheRitualsYourselves.UI.Policy.Desc>
+    <DoTheRitualsYourselves.UI.Policy.MinPawnCount>Min Participants</DoTheRitualsYourselves.UI.Policy.MinPawnCount>
+    <DoTheRitualsYourselves.UI.Policy.MinPawnCount.Tip>Set the minimum number of participants required to start the ritual.</DoTheRitualsYourselves.UI.Policy.MinPawnCount.Tip>
+    <DoTheRitualsYourselves.UI.Policy.AvgMood>Average Mood</DoTheRitualsYourselves.UI.Policy.AvgMood>
+    <DoTheRitualsYourselves.UI.Policy.AvgMood.Tip>Set the average mood of participants required to start the ritual.</DoTheRitualsYourselves.UI.Policy.AvgMood.Tip>
+    <DoTheRitualsYourselves.UI.Policy.Time>Time</DoTheRitualsYourselves.UI.Policy.Time>
+    <DoTheRitualsYourselves.UI.Policy.Time.Tip>Set the time range during which the ritual may start.</DoTheRitualsYourselves.UI.Policy.Time.Tip>
+    <DoTheRitualsYourselves.UI.Policy.InvertTime>Invert Time</DoTheRitualsYourselves.UI.Policy.InvertTime>
+    <DoTheRitualsYourselves.UI.Policy.InvertTime.Tip>When enabled, prevents rituals from starting during the specified time range.</DoTheRitualsYourselves.UI.Policy.InvertTime.Tip>
+    <DoTheRitualsYourselves.UI.Policy.PawnHealth>Participant Health</DoTheRitualsYourselves.UI.Policy.PawnHealth>
+    <DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip>Set the required health condition of participants eligible for the ritual.</DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip>
+    <DoTheRitualsYourselves.UI.Policy.PawnMood>Participant Mood</DoTheRitualsYourselves.UI.Policy.PawnMood>
+    <DoTheRitualsYourselves.UI.Policy.PawnMood.Tip>Set the required mood level of participants eligible for the ritual.</DoTheRitualsYourselves.UI.Policy.PawnMood.Tip>
+    <DoTheRitualsYourselves.UI.Policy.ExceptRestring>Exclude Resting</DoTheRitualsYourselves.UI.Policy.ExceptRestring>
+    <DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip>When enabled, excludes pawns who are resting from the ritual.</DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip>
+
+    <DoTheRitualsYourselves.NewPolicy>New Ritual Policy</DoTheRitualsYourselves.NewPolicy>
+
+    <DoTheRitualsYourselves.UI.NotEditable>Not Editable</DoTheRitualsYourselves.UI.NotEditable>
+    <DoTheRitualsYourselves.UI.Rename>Rename</DoTheRitualsYourselves.UI.Rename>
+    <DoTheRitualsYourselves.UI.Delete>Delete</DoTheRitualsYourselves.UI.Delete>
+    <DoTheRitualsYourselves.UI.Add>Add</DoTheRitualsYourselves.UI.Add>
+    <DoTheRitualsYourselves.UI.DeleteConfirm>Are you sure you want to delete this ritual policy?</DoTheRitualsYourselves.UI.DeleteConfirm>
+</LanguageData>
