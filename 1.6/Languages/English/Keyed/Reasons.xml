@@ -8,4 +8,5 @@
     <DoTheRitualsYourselves.Reason.Danger>There is danger present, so the ritual cannot start.</DoTheRitualsYourselves.Reason.Danger>
     <DoTheRitualsYourselves.Reason.Nobody>No one is available to participate in the ritual.</DoTheRitualsYourselves.Reason.Nobody>
     <DoTheRitualsYourselves.Reason.CantUnknown>The ritual cannot be started for an unknown reason.</DoTheRitualsYourselves.Reason.CantUnknown>
+    <DoTheRitualsYourselves.Reason.LowQuality>Expected quality is too low.</DoTheRitualsYourselves.Reason.LowQuality>
 </LanguageData>

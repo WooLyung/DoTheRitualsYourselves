@@ -21,6 +21,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
             FloatRange avgMood,
             IntRange time,
             bool invertTime,
+            int minQuality,
             FloatRange pawnHealth,
             FloatRange pawnMood,
             bool exceptResting,
@@ -28,7 +29,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
             bool allowColonist,
             bool allowSlave,
             bool allowOtherIdeo)
-            : base(minPawnCount, maxNonRoleCount, avgMood, time, invertTime, pawnHealth, pawnMood, exceptResting, respectAllowedArea, allowColonist, allowSlave, allowOtherIdeo)
+            : base(minPawnCount, maxNonRoleCount, avgMood, time, invertTime, minQuality, pawnHealth, pawnMood, exceptResting, respectAllowedArea, allowColonist, allowSlave, allowOtherIdeo)
         {
             this.label = label;
         }

@@ -210,8 +210,13 @@ namespace DoTheRitualsYourselves.Core
                     {
                         if (CanStartWithPawns(ritual, map, targetInfo, ritualObligation, ref reason3, ref callback, ref quality))
                         {
-                            callback();
-                            return true;
+                            if (forced || Mathf.RoundToInt(quality * 100) >= policy.minQuality)
+                            {
+                                callback();
+                                return true;
+                            }
+                            reason = "DoTheRitualsYourselves.Reason.LowQuality".Translate();
+                            return false;
                         }
                     }
                 }
@@ -266,8 +271,13 @@ namespace DoTheRitualsYourselves.Core
 
             if (callback != null)
             {
-                callback();
-                return true;
+                if (forced || Mathf.RoundToInt(quality * 100) >= policy.minQuality)
+                {
+                    callback();
+                    return true;
+                }
+                reason = "DoTheRitualsYourselves.Reason.LowQuality".Translate();
+                return false;
             }
 
             reason = "DoTheRitualsYourselves.Reason.RitualNoSpotOrObligation".Translate();

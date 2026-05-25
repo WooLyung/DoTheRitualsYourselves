@@ -54,6 +54,8 @@
     <DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip>활성화하면 노예가 행사에 참여할 수 있습니다.</DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip>
     <DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo>다른 사상</DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo>
     <DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip>활성화하면 다른 사상도 행사에 참여할 수 있습니다.</DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip>
+    <DoTheRitualsYourselves.UI.Policy.MinQuality>최소 품질</DoTheRitualsYourselves.UI.Policy.MinQuality>
+    <DoTheRitualsYourselves.UI.Policy.MinQuality.Tip>행사를 시작할 최소 품질을 설정합니다.</DoTheRitualsYourselves.UI.Policy.MinQuality.Tip>
 
     <DoTheRitualsYourselves.NewPolicy>새 행사 정책</DoTheRitualsYourselves.NewPolicy>
 

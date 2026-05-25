@@ -14,6 +14,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
         public FloatRange avgMood = new FloatRange(0f, 1f);
         public IntRange time = new IntRange(0, 24);
         public bool invertTime = false;
+        public int minQuality = 0;
 
         public FloatRange pawnHealth = new FloatRange(0f, 1f);
         public FloatRange pawnMood = new FloatRange(0f, 1f);
@@ -47,6 +48,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
             FloatRange avgMood,
             IntRange time,
             bool invertTime,
+            int minQuality,
             FloatRange pawnHealth,
             FloatRange pawnMood,
             bool exceptResting,
@@ -61,6 +63,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
             this.avgMood = avgMood;
             this.time = time;
             this.invertTime = invertTime;
+            this.minQuality = minQuality;
 
             this.pawnHealth = pawnHealth;
             this.pawnMood = pawnMood;
@@ -82,6 +85,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
             Scribe_Values.Look(ref time.min, "DoTheRitualsYourselves.TimeMin", 0);
             Scribe_Values.Look(ref time.max, "DoTheRitualsYourselves.TimeMax", 24);
             Scribe_Values.Look(ref invertTime, "DoTheRitualsYourselves.InvertTime", false);
+            Scribe_Values.Look(ref minQuality, "DoTheRitualsYourselves.MinQuality", 0);
             Scribe_Values.Look(ref pawnHealth.min, "DoTheRitualsYourselves.PawnHealthMin", 0f);
             Scribe_Values.Look(ref pawnHealth.max, "DoTheRitualsYourselves.PawnHealthMax", 0f);
             Scribe_Values.Look(ref pawnMood.min, "DoTheRitualsYourselves.PawnMoodMin", 0f);
@@ -140,7 +144,7 @@ namespace DoTheRitualsYourselves.RitualPolicies
                 return false;
             }
 
-            var candidates = map.mapPawns.AllHumanlike.Where(pawn => IsCanJoin(ritual, null, pawn));
+            var candidates = map.mapPawns.FreeColonistsAndPrisonersSpawned.Where(pawn => IsCanJoin(ritual, null, pawn));
             if (candidates.Count() < minPawnCount)
             {
                 reason = "DoTheRitualsYourselves.Reason.InsufficientPawn".Translate();

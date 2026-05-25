@@ -53,6 +53,8 @@
     <DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip>When enabled, slaves can participate in the ritual.</DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip>
     <DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo>Other Ideoligions</DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo>
     <DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip>When enabled, members of other ideoligions can also participate in the ritual.</DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip>
+    <DoTheRitualsYourselves.UI.Policy.MinQuality>Min Quality</DoTheRitualsYourselves.UI.Policy.MinQuality>
+    <DoTheRitualsYourselves.UI.Policy.MinQuality.Tip>Set the minimum quality required to start the ritual.</DoTheRitualsYourselves.UI.Policy.MinQuality.Tip>
 
     <DoTheRitualsYourselves.NewPolicy>New Ritual Policy</DoTheRitualsYourselves.NewPolicy>
 

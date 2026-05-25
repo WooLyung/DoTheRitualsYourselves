@@ -134,6 +134,18 @@ namespace DoTheRitualsYourselves.Windows
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.invertTime, 16);
             GUI.enabled = true;
+            curY += 35f;
+
+            // min quality
+            var rect5 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect5, "DoTheRitualsYourselves.UI.Policy.MinQuality.Tip".Translate());
+            Widgets.Label(rect5, "DoTheRitualsYourselves.UI.Policy.MinQuality".Translate());
+            GUI.enabled = !selectedPolicy.IsConst;
+            float qualitySlider = Widgets.HorizontalSlider(
+                new Rect(settingX + labelWidth, curY, sliderWidth, 24f),
+                selectedPolicy.minQuality, 0, 100, true, ((int)selectedPolicy.minQuality).ToString() + "%", roundTo: 1f);
+            selectedPolicy.minQuality = (int)qualitySlider;
+            GUI.enabled = true;
             curY += 70f;
 
             // participants
@@ -143,63 +155,63 @@ namespace DoTheRitualsYourselves.Windows
             curY += 45f;
 
             // min health
-            var rect5 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect5, "DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip".Translate());
-            Widgets.Label(rect5, "DoTheRitualsYourselves.UI.Policy.PawnHealth".Translate());
+            var rect6 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect6, "DoTheRitualsYourselves.UI.Policy.PawnHealth.Tip".Translate());
+            Widgets.Label(rect6, "DoTheRitualsYourselves.UI.Policy.PawnHealth".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.FloatRange(new Rect(settingX + labelWidth, curY, sliderWidth, 24f), 214578973, ref selectedPolicy.pawnHealth, 0f, 1f, $"{(selectedPolicy.pawnHealth.min * 100).ToString("F0")}-{(selectedPolicy.pawnHealth.max * 100).ToString("F0")}%");
             GUI.enabled = true;
             curY += 35f;
 
-            // min health
-            var rect6 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect6, "DoTheRitualsYourselves.UI.Policy.PawnMood.Tip".Translate());
-            Widgets.Label(rect6, "DoTheRitualsYourselves.UI.Policy.PawnMood".Translate());
+            // min mood
+            var rect7 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect7, "DoTheRitualsYourselves.UI.Policy.PawnMood.Tip".Translate());
+            Widgets.Label(rect7, "DoTheRitualsYourselves.UI.Policy.PawnMood".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.FloatRange(new Rect(settingX + labelWidth, curY, sliderWidth, 24f), 214578974, ref selectedPolicy.pawnMood, 0f, 1f, $"{(selectedPolicy.pawnMood.min * 100).ToString("F0")}-{(selectedPolicy.pawnMood.max * 100).ToString("F0")}%");
             GUI.enabled = true;
             curY += 35f;
 
             // except resting
-            var rect7 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect7, "DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip".Translate());
-            Widgets.Label(rect7, "DoTheRitualsYourselves.UI.Policy.ExceptRestring".Translate());
+            var rect8 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect8, "DoTheRitualsYourselves.UI.Policy.ExceptRestring.Tip".Translate());
+            Widgets.Label(rect8, "DoTheRitualsYourselves.UI.Policy.ExceptRestring".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.exceptResting, 16);
             GUI.enabled = true;
             curY += 35f;
 
             // respect allowed area
-            var rect8 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect8, "DoTheRitualsYourselves.UI.Policy.RespectAllowedArea.Tip".Translate());
-            Widgets.Label(rect8, "DoTheRitualsYourselves.UI.Policy.RespectAllowedArea".Translate());
+            var rect9 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect9, "DoTheRitualsYourselves.UI.Policy.RespectAllowedArea.Tip".Translate());
+            Widgets.Label(rect9, "DoTheRitualsYourselves.UI.Policy.RespectAllowedArea".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.respectAllowedArea, 16);
             GUI.enabled = true;
             curY += 35f;
 
             // allow colonist
-            var rect9 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect9, "DoTheRitualsYourselves.UI.Policy.AllowColonist.Tip".Translate());
-            Widgets.Label(rect9, "DoTheRitualsYourselves.UI.Policy.AllowColonist".Translate());
+            var rect10 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect10, "DoTheRitualsYourselves.UI.Policy.AllowColonist.Tip".Translate());
+            Widgets.Label(rect10, "DoTheRitualsYourselves.UI.Policy.AllowColonist".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.allowColonist, 16);
             GUI.enabled = true;
             curY += 35f;
 
             // allow slave
-            var rect10 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect10, "DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip".Translate());
-            Widgets.Label(rect10, "DoTheRitualsYourselves.UI.Policy.AllowSlave".Translate());
+            var rect11 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect11, "DoTheRitualsYourselves.UI.Policy.AllowSlave.Tip".Translate());
+            Widgets.Label(rect11, "DoTheRitualsYourselves.UI.Policy.AllowSlave".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.allowSlave, 16);
             GUI.enabled = true;
             curY += 35f;
 
             // allow other ideo
-            var rect11 = new Rect(settingX, curY, labelWidth, 24f);
-            TooltipHandler.TipRegion(rect11, "DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip".Translate());
-            Widgets.Label(rect11, "DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo".Translate());
+            var rect12 = new Rect(settingX, curY, labelWidth, 24f);
+            TooltipHandler.TipRegion(rect12, "DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo.Tip".Translate());
+            Widgets.Label(rect12, "DoTheRitualsYourselves.UI.Policy.AllowOtherIdeo".Translate());
             GUI.enabled = !selectedPolicy.IsConst;
             Widgets.Checkbox(settingX + labelWidth, curY, ref selectedPolicy.allowOtherIdeo, 16);
             GUI.enabled = true;
