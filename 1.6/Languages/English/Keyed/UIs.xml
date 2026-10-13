@@ -22,6 +22,7 @@
     
     <DoTheRitualsYourselves.UI.RitualSpot.None>Auto</DoTheRitualsYourselves.UI.RitualSpot.None>
     <DoTheRitualsYourselves.UI.RitualSpot.Assign>Assign</DoTheRitualsYourselves.UI.RitualSpot.Assign>
+    <DoTheRitualsYourselves.UI.RitualSpot.Reassign>Reassign</DoTheRitualsYourselves.UI.RitualSpot.Reassign>
     <DoTheRitualsYourselves.UI.RitualSpot.Clear>Clear</DoTheRitualsYourselves.UI.RitualSpot.Clear>
     <DoTheRitualsYourselves.UI.RitualSpot.JumpTo>Jump To</DoTheRitualsYourselves.UI.RitualSpot.JumpTo>
     <DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>Ritual spot has been assigned.</DoTheRitualsYourselves.UI.RitualSpot.AssignComplete>

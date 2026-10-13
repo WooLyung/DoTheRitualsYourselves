@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <DoTheRitualsYourselves.Message.DeleteRitualPolicy>행사 정책 {0}(을)를 삭제했습니다.</DoTheRitualsYourselves.Message.DeleteRitualPolicy>
+    <DoTheRitualsYourselves.Message.NewRitualPolicy>새 행사 정책을 생성했습니다.</DoTheRitualsYourselves.Message.NewRitualPolicy>
+    <DoTheRitualsYourselves.Message.RenameRitualPolicy>행사 정책의 이름을 {0}(으)로 바꿨습니다.</DoTheRitualsYourselves.Message.RenameRitualPolicy>
+
+    <DoTheRitualsYourselves.Message.CantStart>행사를 시작할 수 없습니다.</DoTheRitualsYourselves.Message.CantStart>
+</LanguageData>

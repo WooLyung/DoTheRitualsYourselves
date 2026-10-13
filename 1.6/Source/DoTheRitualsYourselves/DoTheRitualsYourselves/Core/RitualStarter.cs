@@ -1,7 +1,6 @@
 ﻿using DoTheRitualsYourselves.Extra;
 using DoTheRitualsYourselves.Lister.Rituals;
 using DoTheRitualsYourselves.RitualPolicies;
-using DoTheRitualsYourselves.WorldComponents;
 using RimWorld;
 using System;
 using System.Collections.Generic;
